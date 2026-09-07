@@ -62,26 +62,35 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.75rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.24 0.06 258);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.24 0.06 258);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.24 0.06 258);
+  --primary: oklch(0.72 0.14 213);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.97 0.012 240);
+  --secondary-foreground: oklch(0.32 0.06 258);
+  --muted: oklch(0.975 0.008 240);
+  --muted-foreground: oklch(0.55 0.03 255);
+  --accent: oklch(0.63 0.17 285);
+  --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.92 0.012 250);
+  --input: oklch(0.92 0.012 250);
+  --ring: oklch(0.72 0.14 213);
+  --navy: oklch(0.24 0.07 262);
+  --navy-foreground: oklch(0.97 0.01 240);
+  --cyan: oklch(0.78 0.13 205);
+  --violet: oklch(0.63 0.17 285);
+  --gradient-brand: linear-gradient(90deg, var(--cyan), var(--violet));
+  --gradient-band: linear-gradient(100deg, oklch(0.83 0.11 220), oklch(0.8 0.1 270), oklch(0.78 0.12 300));
+  --gradient-soft: linear-gradient(180deg, oklch(0.99 0.008 230), oklch(1 0 0));
+  --shadow-soft: 0 18px 45px -22px oklch(0.5 0.1 260 / 0.35);
+  --shadow-card: 0 10px 30px -18px oklch(0.5 0.1 260 / 0.45);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -96,6 +105,7 @@
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
 }
+
 
 .dark {
   --background: oklch(0.129 0.042 264.695);
@@ -141,4 +151,86 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+}
+
+@theme inline {
+  --color-navy: var(--navy);
+  --color-navy-foreground: var(--navy-foreground);
+  --color-cyan: var(--cyan);
+  --color-violet: var(--violet);
+  --font-display: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@utility brand-text {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility band-gradient {
+  background: var(--gradient-band);
+}
+
+@utility btn-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.8rem 1.9rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary-foreground);
+  background: var(--gradient-brand);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  &:hover {
+    transform: translateY(-2px);
+    filter: saturate(1.15);
+  }
+}
+
+@utility btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.8rem 1.9rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--secondary-foreground);
+  border: 1px solid var(--border);
+  background: var(--background);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+  &:hover {
+    border-color: var(--cyan);
+    transform: translateY(-2px);
+  }
+}
+
+@utility section-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+@utility soft-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-card);
 }
