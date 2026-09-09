@@ -140,11 +140,11 @@ function Divider() {
 
 function Logo({ className = "" }: { className?: string }) {
   return (
-    <div className={`logo-glow flex items-center justify-center ${className}`}>
+    <div className={`flex items-center justify-center ${className}`}>
       <img
         src={sensoryLogo}
         alt="Sensory Reset"
-        className="h-full w-full object-contain drop-shadow-sm"
+        className="h-full w-full object-contain"
       />
     </div>
   );

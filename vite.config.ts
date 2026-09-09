@@ -13,6 +13,12 @@ export default defineConfig({
       server: { entry: "server" },
     }),
     react(),
-    netlify(),
+    netlify({
+      dev: {
+        edgeFunctions: {
+          enabled: false,
+        },
+      },
+    }),
   ],
 });
