@@ -234,3 +234,63 @@
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-card);
 }
+
+@keyframes hero-breathe {
+  0%, 100% { transform: scale(1.01) translate3d(0, 0, 0); }
+  50% { transform: scale(1.045) translate3d(-0.8%, -0.5%, 0); }
+}
+
+@keyframes wave-flow {
+  0% { stroke-dashoffset: 0; transform: translateX(-1.5%); opacity: 0.22; }
+  50% { opacity: 0.72; }
+  100% { stroke-dashoffset: -140; transform: translateX(1.5%); opacity: 0.22; }
+}
+
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--background) 0%, transparent 18%, transparent 100%);
+}
+
+.hero-image {
+  animation: hero-breathe 9s ease-in-out infinite;
+  transform-origin: 62% 48%;
+}
+
+.hero-wave-overlay {
+  position: absolute;
+  z-index: 2;
+  top: 30%;
+  left: 5%;
+  width: 92%;
+  overflow: visible;
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.hero-wave-overlay path {
+  stroke-dasharray: 16 12;
+  animation: wave-flow 5.5s linear infinite;
+}
+
+.hero-wave-overlay path:nth-child(2) {
+  stroke: var(--violet);
+  animation-delay: -1.8s;
+}
+
+.hero-wave-overlay path:nth-child(3) {
+  animation-delay: -3.6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-image,
+  .hero-wave-overlay path {
+    animation: none;
+  }
+}
