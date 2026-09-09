@@ -16,13 +16,13 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-import sensoryLogo from "@/assets/sensory-reset-logo.png.asset.json";
-import heroImg from "@/assets/hero.jpg.asset.json";
-import exp1 from "@/assets/exp1.jpg.asset.json";
-import exp2 from "@/assets/exp2.jpg.asset.json";
-import exp3 from "@/assets/exp3.jpg.asset.json";
-import founder1 from "@/assets/f1.jpg.asset.json";
-import founder2 from "@/assets/f2.jpg.asset.json";
+import sensoryLogo from "@/assets/sensory-reset-logo.png";
+import heroImg from "@/assets/hero.jpg";
+import exp1 from "@/assets/exp1.jpg";
+import exp2 from "@/assets/exp2.jpg";
+import exp3 from "@/assets/exp3.jpg";
+import founder1 from "@/assets/f1.jpg";
+import founder2 from "@/assets/f2.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -71,19 +71,19 @@ const APPROACH = [
 const EXPERIENCES = [
   {
     tag: "relax",
-    img: exp1.url,
+    img: exp1,
     title: "Deep Relaxation",
     text: "Unwind and release stress through calming sensory immersion.",
   },
   {
     tag: "reboot",
-    img: exp2.url,
+    img: exp2,
     title: "Mind Reboot",
     text: "Reset mental clutter and recharge your focus and clarity.",
   },
   {
     tag: "rejuvenate",
-    img: exp3.url,
+    img: exp3,
     title: "Rejuvenation",
     text: "Replenish your energy and restore balance from within.",
   },
@@ -115,13 +115,13 @@ const PLANS = [
 
 const FOUNDERS = [
   {
-    img: founder1.url,
+    img: founder1,
     name: "Tanushree Basu",
     role: "Founder",
     bio: "Tanushree is a creative entrepreneur with a deep passion for wellness, design, and storytelling. With over two decades of experience in building purpose-driven brands, she brings a unique blend of vision, intuition, and strategic insight to Sensory Reset. Her mission is to craft spaces and experiences that inspire transformation and inner renewal.",
   },
   {
-    img: founder2.url,
+    img: founder2,
     name: "Sona Mazumdar",
     role: "Founder",
     bio: "Sona is a wellness advocate and experience curator with a background in psychology and holistic well-being. Her keen understanding of the mind–body connection and commitment to conscious living shape the ethos of Sensory Reset, making it a sanctuary for relaxation, reflection, and rejuvenation.",
@@ -142,7 +142,7 @@ function Logo({ className = "" }: { className?: string }) {
   return (
     <div className={`logo-glow flex items-center justify-center ${className}`}>
       <img
-        src={sensoryLogo.url}
+        src={sensoryLogo}
         alt="Sensory Reset"
         className="h-full w-full object-contain drop-shadow-sm"
       />
@@ -205,7 +205,7 @@ function Index() {
           <div className="hero-visual relative min-h-[430px] self-stretch overflow-hidden lg:min-h-0">
             <div className="absolute inset-10 rounded-full border border-cyan/30" aria-hidden />
             <img
-              src={heroImg.url}
+              src={heroImg}
               width={1200}
               height={1200}
               alt="Woman in a state of calm surrounded by flowing sensory waves"
