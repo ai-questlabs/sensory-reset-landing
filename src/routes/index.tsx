@@ -138,6 +138,18 @@ function Divider() {
   );
 }
 
+function Logo({ className = "" }: { className?: string }) {
+  return (
+    <div className={`logo-glow flex items-center justify-center ${className}`}>
+      <img
+        src={sensoryLogo.url}
+        alt="Sensory Reset"
+        className="h-full w-full object-contain drop-shadow-sm"
+      />
+    </div>
+  );
+}
+
 function Index() {
   const [filter, setFilter] = useState("all");
   const shown = EXPERIENCES.filter((e) => filter === "all" || e.tag === filter);
@@ -148,14 +160,14 @@ function Index() {
       <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-md">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <a href="#home" className="flex items-center">
-            <img src={sensoryLogo.url} alt="Sensory Reset" className="h-16 w-16 object-contain sm:h-20 sm:w-20" />
+            <Logo className="h-20 w-20 sm:h-24 sm:w-24" />
           </a>
           <ul className="hidden items-center gap-8 lg:flex">
             {NAV.map((n) => (
               <li key={n.label}>
                 <a
                   href={n.href}
-                  className="text-[0.7rem] tracking-[0.2em] uppercase text-muted-foreground transition-colors hover:text-cyan"
+                  className="text-xs tracking-[0.2em] uppercase text-muted-foreground transition-colors hover:text-cyan"
                 >
                   {n.label}
                 </a>
@@ -177,7 +189,7 @@ function Index() {
               <span className="block brand-text">Reboot.</span>
               <span className="block brand-text">Rejuvenate.</span>
             </h1>
-            <p className="mt-9 max-w-xl text-base leading-8 text-muted-foreground lg:text-lg">
+            <p className="mt-9 max-w-xl text-lg leading-9 text-muted-foreground lg:text-xl">
               Immersive experiences that restore balance, elevate well-being, and reconnect individuals with
               themselves.
             </p>
@@ -209,8 +221,8 @@ function Index() {
 
         {/* Welcome */}
         <div className="mx-auto max-w-5xl px-6 pt-20 pb-16 text-center lg:pt-28">
-          <p className="text-sm tracking-[0.32em] uppercase text-muted-foreground">Welcome to Sensory Reset</p>
-          <p className="mt-8 text-xl leading-10 font-light text-foreground/90 sm:text-2xl">
+          <p className="text-[0.75rem] tracking-[0.32em] uppercase text-muted-foreground">Welcome to Sensory Reset</p>
+          <p className="mt-8 text-2xl leading-relaxed font-light text-foreground/90 sm:text-3xl">
             A sanctuary for the mind and body. Through innovative sensory journeys, we guide you to a state of deep
             relaxation, renewal, and inner clarity.
           </p>
@@ -221,8 +233,8 @@ function Index() {
           {PILLARS.map(({ icon: Icon, title, text }) => (
             <div key={title} className="text-center">
               <Icon className="mx-auto h-10 w-10 stroke-1 text-cyan" />
-              <h3 className="section-title mt-6 text-sm">{title}</h3>
-              <p className="mt-4 text-sm leading-7 text-muted-foreground">{text}</p>
+              <h3 className="section-title mt-6 text-base">{title}</h3>
+              <p className="mt-4 text-base leading-8 text-muted-foreground">{text}</p>
             </div>
           ))}
         </div>
@@ -230,11 +242,13 @@ function Index() {
 
       {/* Band */}
       <section className="band-gradient px-6 py-16 text-center">
-        <h2 className="section-title text-xl text-white">This is your reset</h2>
-        <p className="mt-4 text-sm tracking-wide text-white/85">Step away from the noise. Step into yourself.</p>
+        <h2 className="section-title text-2xl text-white">This is your reset</h2>
+        <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-white/85">
+          Step away from the noise. Step into yourself.
+        </p>
         <a
           href="#membership"
-          className="mt-8 inline-flex rounded-full bg-background px-8 py-3 text-[0.7rem] tracking-[0.2em] uppercase text-foreground transition-transform hover:-translate-y-0.5"
+          className="mt-8 inline-flex rounded-full bg-background px-8 py-3 text-xs tracking-[0.2em] uppercase text-foreground transition-transform hover:-translate-y-0.5"
         >
           Book Your Experience
         </a>
@@ -244,8 +258,8 @@ function Index() {
       <section id="about" className="mx-auto max-w-6xl px-6 py-20">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <h2 className="section-title text-2xl">About Us</h2>
-            <p className="mt-6 max-w-md text-sm leading-7 text-muted-foreground">
+            <h2 className="section-title text-3xl">About Us</h2>
+            <p className="mt-6 max-w-md text-base leading-8 text-muted-foreground">
               Sensory Reset was born from a shared vision to create immersive experiences that restore balance, elevate
               well-being, and reconnect individuals with themselves.
             </p>
@@ -253,23 +267,18 @@ function Index() {
               Our Story
             </a>
           </div>
-          <img
-            src={sensoryLogo.url}
-            alt="Sensory Reset logo"
-            loading="lazy"
-            className="mx-auto w-full max-w-sm object-contain"
-          />
+          <Logo className="mx-auto h-48 w-48 sm:h-56 sm:w-56" />
         </div>
 
-        <div className="mt-20 text-center">
-          <h3 className="section-title text-lg">Our Approach</h3>
+        <div className="mt-24 text-center">
+          <h3 className="section-title text-2xl">Our Approach</h3>
           <Divider />
-          <div className="mt-12 grid gap-12 md:grid-cols-3">
+          <div className="mt-14 grid gap-12 md:grid-cols-3">
             {APPROACH.map(({ icon: Icon, title, text }) => (
               <div key={title}>
-                <Icon className="mx-auto h-8 w-8 stroke-1 text-violet" />
-                <h4 className="section-title mt-5 text-[0.72rem]">{title}</h4>
-                <p className="mx-auto mt-3 max-w-xs text-xs leading-6 text-muted-foreground">{text}</p>
+                <Icon className="mx-auto h-10 w-10 stroke-1 text-violet" />
+                <h4 className="section-title mt-6 text-sm">{title}</h4>
+                <p className="mx-auto mt-4 max-w-xs text-base leading-7 text-muted-foreground">{text}</p>
               </div>
             ))}
           </div>
@@ -277,8 +286,8 @@ function Index() {
       </section>
 
       <section className="band-gradient px-6 py-14 text-center">
-        <h2 className="section-title text-lg text-white">Our Promise</h2>
-        <p className="mt-4 text-sm leading-7 text-white/85">
+        <h2 className="section-title text-2xl text-white">Our Promise</h2>
+        <p className="mx-auto mt-4 max-w-xl text-base leading-8 text-white/85">
           To hold space for you, to guide you inward,
           <br />
           and to help you return to your truest self.
@@ -287,8 +296,8 @@ function Index() {
 
       {/* Experiences */}
       <section id="experiences" className="mx-auto max-w-6xl px-6 py-20 text-center">
-        <h2 className="section-title text-2xl">Our Experiences</h2>
-        <p className="mx-auto mt-6 max-w-md text-sm leading-7 text-muted-foreground">
+        <h2 className="section-title text-3xl">Our Experiences</h2>
+        <p className="mx-auto mt-6 max-w-lg text-base leading-8 text-muted-foreground">
           Carefully curated immersive journeys designed to relax, heal, and transform.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
@@ -298,8 +307,8 @@ function Index() {
               onClick={() => setFilter(t)}
               className={
                 t === filter
-                  ? "rounded-full px-6 py-2 text-[0.65rem] tracking-[0.2em] uppercase text-primary-foreground [background:var(--gradient-brand)]"
-                  : "rounded-full border border-border px-6 py-2 text-[0.65rem] tracking-[0.2em] uppercase text-muted-foreground transition-colors hover:border-cyan"
+                  ? "rounded-full px-6 py-2 text-xs tracking-[0.2em] uppercase text-primary-foreground [background:var(--gradient-brand)]"
+                  : "rounded-full border border-border px-6 py-2 text-xs tracking-[0.2em] uppercase text-muted-foreground transition-colors hover:border-cyan"
               }
             >
               {t}
@@ -312,9 +321,9 @@ function Index() {
             <article key={e.title} className="soft-card overflow-hidden text-left">
               <img src={e.img} alt={e.title} width={900} height={640} loading="lazy" className="h-48 w-full object-cover" />
               <div className="p-6">
-                <h3 className="section-title text-[0.75rem]">{e.title}</h3>
-                <p className="mt-3 text-xs leading-6 text-muted-foreground">{e.text}</p>
-                <span className="mt-5 inline-flex items-center gap-2 text-[0.65rem] tracking-[0.2em] uppercase text-cyan">
+                <h3 className="section-title text-sm">{e.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">{e.text}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-cyan">
                   Learn more <ArrowRight className="h-3 w-3" />
                 </span>
               </div>
@@ -324,10 +333,10 @@ function Index() {
       </section>
 
       <section className="band-gradient px-6 py-14 text-center">
-        <h2 className="section-title text-lg text-white">Ready to begin your journey?</h2>
+        <h2 className="section-title text-2xl text-white">Ready to begin your journey?</h2>
         <a
           href="#membership"
-          className="mt-6 inline-flex rounded-full bg-background px-8 py-3 text-[0.7rem] tracking-[0.2em] uppercase text-foreground transition-transform hover:-translate-y-0.5"
+          className="mt-6 inline-flex rounded-full bg-background px-8 py-3 text-xs tracking-[0.2em] uppercase text-foreground transition-transform hover:-translate-y-0.5"
         >
           Book Your Experience
         </a>
@@ -335,8 +344,8 @@ function Index() {
 
       {/* Membership */}
       <section id="membership" className="mx-auto max-w-6xl px-6 py-20 text-center">
-        <h2 className="section-title text-2xl">Membership</h2>
-        <p className="mx-auto mt-6 max-w-lg text-sm leading-7 text-muted-foreground">
+        <h2 className="section-title text-3xl">Membership</h2>
+        <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-muted-foreground">
           Become a part of the Sensory Reset community and enjoy exclusive benefits designed to support your well-being
           journey.
         </p>
@@ -347,23 +356,23 @@ function Index() {
               className={`soft-card relative flex flex-col p-8 text-left ${p.popular ? "ring-1 ring-cyan" : ""}`}
             >
               {p.popular && (
-                <span className="absolute inset-x-0 top-0 rounded-t-2xl py-2 text-center text-[0.6rem] tracking-[0.25em] uppercase text-primary-foreground [background:var(--gradient-brand)]">
+                <span className="absolute inset-x-0 top-0 rounded-t-2xl py-2 text-center text-xs tracking-[0.25em] uppercase text-primary-foreground [background:var(--gradient-brand)]">
                   Most Popular
                 </span>
               )}
               <Gift className={`h-7 w-7 stroke-1 text-violet ${p.popular ? "mt-8" : ""}`} />
-              <h3 className="section-title mt-5 text-[0.75rem]">{p.name}</h3>
-              <p className="mt-2 text-xs leading-6 text-muted-foreground">{p.for}</p>
+              <h3 className="section-title mt-5 text-sm">{p.name}</h3>
+              <p className="mt-2 text-sm leading-7 text-muted-foreground">{p.for}</p>
               <ul className="mt-6 space-y-2">
                 {p.perks.map((perk) => (
-                  <li key={perk} className="flex items-start gap-2 text-xs leading-6 text-muted-foreground">
+                  <li key={perk} className="flex items-start gap-2 text-sm leading-7 text-muted-foreground">
                     <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-cyan" />
                     {perk}
                   </li>
                 ))}
               </ul>
               <p className="mt-8 text-lg font-light">
-                {p.price} <span className="text-xs text-muted-foreground">/ month</span>
+                {p.price} <span className="text-sm text-muted-foreground">/ month</span>
               </p>
               <a href="#contact" className="btn-brand mt-6 w-full">
                 Join Now
@@ -374,8 +383,8 @@ function Index() {
         <div className="band-gradient mt-12 flex flex-wrap items-center justify-center gap-4 rounded-2xl px-8 py-8 text-left">
           <Gift className="h-8 w-8 stroke-1 text-white" />
           <div>
-            <h3 className="section-title text-[0.8rem] text-white">Members get more</h3>
-            <p className="mt-2 text-xs leading-6 text-white/85">
+            <h3 className="section-title text-sm text-white">Members get more</h3>
+            <p className="mt-2 text-sm leading-7 text-white/85">
               Special offers, early access, and curated wellness resources — only for our community.
             </p>
           </div>
@@ -384,9 +393,9 @@ function Index() {
 
       {/* Founders */}
       <section id="founders" className="mx-auto max-w-5xl px-6 py-20 text-center">
-        <h2 className="section-title text-2xl brand-text">Founder Members</h2>
+        <h2 className="section-title text-3xl brand-text">Founder Members</h2>
         <Divider />
-        <p className="mx-auto mt-8 max-w-xl text-sm leading-7 text-muted-foreground">
+        <p className="mx-auto mt-8 max-w-2xl text-base leading-8 text-muted-foreground">
           The heart and vision behind Sensory Reset. Two lifelong learners, healers, and dreamers, coming together to
           create a space for transformation and renewal.
         </p>
@@ -403,10 +412,10 @@ function Index() {
                   className="h-44 w-44 rounded-full border-4 border-background object-cover"
                 />
               </div>
-              <h3 className="section-title mt-6 text-[0.85rem]">{f.name}</h3>
-              <p className="mt-2 text-[0.65rem] tracking-[0.3em] uppercase text-cyan">{f.role}</p>
+              <h3 className="section-title mt-6 text-sm">{f.name}</h3>
+              <p className="mt-2 text-xs tracking-[0.3em] uppercase text-cyan">{f.role}</p>
               <span className="mx-auto mt-4 block h-px w-10 bg-border" />
-              <p className="mt-5 text-xs leading-6 text-muted-foreground">{f.bio}</p>
+              <p className="mx-auto mt-5 max-w-sm text-base leading-7 text-muted-foreground">{f.bio}</p>
             </div>
           ))}
         </div>
@@ -414,7 +423,7 @@ function Index() {
 
       <section id="journal" className="band-gradient px-6 py-16 text-center">
         <p className="text-3xl font-light text-white/70">“</p>
-        <p className="mx-auto max-w-lg text-lg leading-8 font-light text-white">
+        <p className="mx-auto max-w-2xl text-xl leading-9 font-light text-white">
           Together, we invite you to pause, reset, and rediscover yourself.
         </p>
       </section>
@@ -423,23 +432,21 @@ function Index() {
       <footer id="contact" className="bg-navy text-navy-foreground">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3">
-              <img src={sensoryLogo.url} alt="Sensory Reset" loading="lazy" className="h-20 w-20 object-contain" />
-            </div>
-            <p className="mt-6 max-w-xs text-xs leading-6 text-navy-foreground/70">
+            <Logo className="h-24 w-24" />
+            <p className="mt-6 max-w-sm text-sm leading-7 text-navy-foreground/70">
               Immersive experiences that restore balance, elevate well-being, and reconnect individuals with themselves.
             </p>
             <div className="mt-6 flex gap-4 text-navy-foreground/70">
-              <a href="#" aria-label="Instagram"><Instagram className="h-4 w-4" /></a>
-              <a href="#" aria-label="LinkedIn"><Linkedin className="h-4 w-4" /></a>
-              <a href="#" aria-label="YouTube"><Youtube className="h-4 w-4" /></a>
-              <a href="#" aria-label="Video"><Play className="h-4 w-4" /></a>
+              <a href="#" aria-label="Instagram"><Instagram className="h-5 w-5" /></a>
+              <a href="#" aria-label="LinkedIn"><Linkedin className="h-5 w-5" /></a>
+              <a href="#" aria-label="YouTube"><Youtube className="h-5 w-5" /></a>
+              <a href="#" aria-label="Video"><Play className="h-5 w-5" /></a>
             </div>
           </div>
 
           <div>
-            <h3 className="text-[0.65rem] tracking-[0.25em] uppercase">Quick Links</h3>
-            <ul className="mt-5 space-y-3 text-xs text-navy-foreground/70">
+            <h3 className="text-xs tracking-[0.25em] uppercase">Quick Links</h3>
+            <ul className="mt-5 space-y-3 text-sm text-navy-foreground/70">
               <li><a href="#about">About Us</a></li>
               <li><a href="#experiences">Experiences</a></li>
               <li><a href="#membership">Membership</a></li>
@@ -449,8 +456,8 @@ function Index() {
           </div>
 
           <div>
-            <h3 className="text-[0.65rem] tracking-[0.25em] uppercase">Support</h3>
-            <ul className="mt-5 space-y-3 text-xs text-navy-foreground/70">
+            <h3 className="text-xs tracking-[0.25em] uppercase">Support</h3>
+            <ul className="mt-5 space-y-3 text-sm text-navy-foreground/70">
               <li><a href="#contact">FAQ</a></li>
               <li><a href="#contact">Privacy Policy</a></li>
               <li><a href="#contact">Terms &amp; Conditions</a></li>
@@ -458,26 +465,26 @@ function Index() {
           </div>
 
           <div>
-            <h3 className="text-[0.65rem] tracking-[0.25em] uppercase">Contact</h3>
-            <ul className="mt-5 space-y-3 text-xs text-navy-foreground/70">
+            <h3 className="text-xs tracking-[0.25em] uppercase">Contact</h3>
+            <ul className="mt-5 space-y-3 text-sm text-navy-foreground/70">
               <li>hello@sensoryreset.com</li>
               <li>+91 98765 43210</li>
               <li>New Delhi, India</li>
             </ul>
-            <h3 className="mt-8 text-[0.65rem] tracking-[0.25em] uppercase">Newsletter</h3>
-            <p className="mt-3 text-xs text-navy-foreground/70">Stay inspired. Stay connected.</p>
+            <h3 className="mt-8 text-xs tracking-[0.25em] uppercase">Newsletter</h3>
+            <p className="mt-3 text-sm text-navy-foreground/70">Stay inspired. Stay connected.</p>
             <form className="mt-4 space-y-3" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
                 required
                 placeholder="Enter your email"
-                className="w-full rounded-md border border-white/15 bg-white/5 px-4 py-2 text-xs outline-none placeholder:text-navy-foreground/40 focus:border-cyan"
+                className="w-full rounded-md border border-white/15 bg-white/5 px-4 py-2 text-sm outline-none placeholder:text-navy-foreground/40 focus:border-cyan"
               />
               <button type="submit" className="btn-brand w-full">Subscribe</button>
             </form>
           </div>
         </div>
-        <div className="border-t border-white/10 py-6 text-center text-[0.65rem] text-navy-foreground/60">
+        <div className="border-t border-white/10 py-6 text-center text-xs text-navy-foreground/60">
           © 2026 Sensory Reset. All rights reserved.
         </div>
       </footer>
