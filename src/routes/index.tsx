@@ -148,7 +148,7 @@ function Index() {
       <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-md">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <a href="#home" className="flex items-center">
-            <img src={sensoryLogo.url} alt="Sensory Reset" className="h-14 w-14 object-contain sm:h-16 sm:w-16" />
+            <img src={sensoryLogo.url} alt="Sensory Reset" className="h-16 w-16 object-contain sm:h-20 sm:w-20" />
           </a>
           <ul className="hidden items-center gap-8 lg:flex">
             {NAV.map((n) => (
@@ -170,7 +170,7 @@ function Index() {
 
       {/* Hero */}
       <section id="home" className="relative overflow-hidden">
-        <div className="grid min-h-[calc(100svh-89px)] w-full items-center lg:grid-cols-2">
+        <div className="grid min-h-[680px] w-full items-center lg:min-h-[720px] lg:grid-cols-2">
           <div className="px-6 py-16 sm:px-12 lg:px-[7.5vw] lg:py-24">
             <h1 className="font-display text-5xl leading-[1.15] font-light tracking-[0.12em] uppercase sm:text-6xl lg:text-7xl xl:text-8xl">
               <span className="block brand-text">Relax.</span>
@@ -190,14 +190,14 @@ function Index() {
               </a>
             </div>
           </div>
-          <div className="hero-visual relative min-h-[52vh] self-stretch overflow-hidden lg:min-h-0">
+          <div className="hero-visual relative min-h-[430px] self-stretch overflow-hidden lg:min-h-0">
             <div className="absolute inset-10 rounded-full border border-cyan/30" aria-hidden />
             <img
               src={heroImg.url}
               width={1200}
               height={1200}
               alt="Woman in a state of calm surrounded by flowing sensory waves"
-              className="hero-image absolute inset-0 h-full w-full object-cover object-center"
+              className="hero-image absolute inset-0 h-full w-full object-contain object-center"
             />
             <svg className="hero-wave-overlay" viewBox="0 0 760 360" aria-hidden="true">
               <path d="M18 181 C120 90 205 270 315 178 S520 85 742 180" />
