@@ -16,8 +16,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-import logoFull from "@/assets/logo-full.png.asset.json";
-import logoMark from "@/assets/logo-mark.png.asset.json";
+import sensoryLogo from "@/assets/sensory-reset-logo.png.asset.json";
 import heroImg from "@/assets/hero.jpg.asset.json";
 import exp1 from "@/assets/exp1.jpg.asset.json";
 import exp2 from "@/assets/exp2.jpg.asset.json";
@@ -148,12 +147,8 @@ function Index() {
       {/* Nav */}
       <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-md">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <a href="#home" className="flex items-center gap-3">
-            <img src={logoMark.url} alt="Sensory Reset" className="h-9 w-9 object-contain" />
-            <span className="leading-none">
-              <span className="block text-[0.55rem] tracking-[0.45em] text-muted-foreground">SENSORY</span>
-              <span className="block text-base tracking-[0.32em] text-foreground">RESET</span>
-            </span>
+          <a href="#home" className="flex items-center">
+            <img src={sensoryLogo.url} alt="Sensory Reset" className="h-16 w-16 object-contain sm:h-20 sm:w-20" />
           </a>
           <ul className="hidden items-center gap-8 lg:flex">
             {NAV.map((n) => (
@@ -175,18 +170,18 @@ function Index() {
 
       {/* Hero */}
       <section id="home" className="relative overflow-hidden">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-16 lg:grid-cols-2 lg:py-24">
-          <div>
-            <h1 className="font-display text-4xl leading-[1.15] font-light tracking-[0.14em] uppercase sm:text-5xl lg:text-6xl">
+        <div className="grid min-h-[680px] w-full items-center lg:min-h-[720px] lg:grid-cols-2">
+          <div className="px-6 py-16 sm:px-12 lg:px-[7.5vw] lg:py-24">
+            <h1 className="font-display text-5xl leading-[1.15] font-light tracking-[0.12em] uppercase sm:text-6xl lg:text-7xl xl:text-8xl">
               <span className="block brand-text">Relax.</span>
               <span className="block brand-text">Reboot.</span>
               <span className="block brand-text">Rejuvenate.</span>
             </h1>
-            <p className="mt-8 max-w-md text-sm leading-7 text-muted-foreground">
+            <p className="mt-9 max-w-xl text-base leading-8 text-muted-foreground lg:text-lg">
               Immersive experiences that restore balance, elevate well-being, and reconnect individuals with
               themselves.
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-11 flex flex-wrap gap-4">
               <a href="#experiences" className="btn-brand">
                 Our Experiences
               </a>
@@ -195,34 +190,39 @@ function Index() {
               </a>
             </div>
           </div>
-          <div className="relative">
-            <div className="absolute inset-6 rounded-full border border-cyan/30" aria-hidden />
+          <div className="hero-visual relative min-h-[430px] self-stretch overflow-hidden lg:min-h-0">
+            <div className="absolute inset-10 rounded-full border border-cyan/30" aria-hidden />
             <img
               src={heroImg.url}
               width={1200}
               height={1200}
               alt="Woman in a state of calm surrounded by flowing sensory waves"
-              className="relative mx-auto w-full max-w-lg"
+              className="hero-image absolute inset-0 h-full w-full object-contain object-center"
             />
+            <svg className="hero-wave-overlay" viewBox="0 0 760 360" aria-hidden="true">
+              <path d="M18 181 C120 90 205 270 315 178 S520 85 742 180" />
+              <path d="M18 194 C125 112 213 252 322 192 S530 108 742 195" />
+              <path d="M18 207 C130 134 220 236 330 206 S540 132 742 210" />
+            </svg>
           </div>
         </div>
 
         {/* Welcome */}
-        <div className="mx-auto max-w-3xl px-6 pb-16 text-center">
-          <p className="text-[0.7rem] tracking-[0.35em] uppercase text-muted-foreground">Welcome to Sensory Reset</p>
-          <p className="mt-6 text-lg leading-9 font-light text-foreground/90">
+        <div className="mx-auto max-w-5xl px-6 pt-20 pb-16 text-center lg:pt-28">
+          <p className="text-sm tracking-[0.32em] uppercase text-muted-foreground">Welcome to Sensory Reset</p>
+          <p className="mt-8 text-xl leading-10 font-light text-foreground/90 sm:text-2xl">
             A sanctuary for the mind and body. Through innovative sensory journeys, we guide you to a state of deep
             relaxation, renewal, and inner clarity.
           </p>
         </div>
 
         {/* Pillars */}
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 pb-20 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 pb-24 sm:grid-cols-2 lg:grid-cols-4 lg:pb-28">
           {PILLARS.map(({ icon: Icon, title, text }) => (
             <div key={title} className="text-center">
-              <Icon className="mx-auto h-8 w-8 stroke-1 text-cyan" />
-              <h3 className="section-title mt-5 text-[0.72rem]">{title}</h3>
-              <p className="mt-3 text-xs leading-6 text-muted-foreground">{text}</p>
+              <Icon className="mx-auto h-10 w-10 stroke-1 text-cyan" />
+              <h3 className="section-title mt-6 text-sm">{title}</h3>
+              <p className="mt-4 text-sm leading-7 text-muted-foreground">{text}</p>
             </div>
           ))}
         </div>
@@ -254,7 +254,7 @@ function Index() {
             </a>
           </div>
           <img
-            src={logoFull.url}
+            src={sensoryLogo.url}
             alt="Sensory Reset logo"
             loading="lazy"
             className="mx-auto w-full max-w-sm object-contain"
@@ -424,11 +424,7 @@ function Index() {
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3">
-              <img src={logoMark.url} alt="" loading="lazy" className="h-9 w-9 object-contain" />
-              <span className="leading-none">
-                <span className="block text-[0.55rem] tracking-[0.45em] text-navy-foreground/70">SENSORY</span>
-                <span className="block text-base tracking-[0.32em]">RESET</span>
-              </span>
+              <img src={sensoryLogo.url} alt="Sensory Reset" loading="lazy" className="h-20 w-20 object-contain" />
             </div>
             <p className="mt-6 max-w-xs text-xs leading-6 text-navy-foreground/70">
               Immersive experiences that restore balance, elevate well-being, and reconnect individuals with themselves.
